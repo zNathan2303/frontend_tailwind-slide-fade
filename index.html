@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --animate-fade: slider 12s infinite, fade 4s;
+            @keyframes slider {
+                0%, 33% {
+                    background-image: url(./img/mesa-ping-pong.jpg);
+                    --text-description: "Mesa de ping-pong, que é o lugar que passo a maior parte dos intervalos"
+                }
+                34%, 66% {
+                    background-image: url(./img/sala-mac.jpg);
+                    --text-description: "A melhor sala para dividir a tela em 2 ou 3 partes"
+                }
+                67%, 100% {
+                    background-image: url(./img/aapm.jpg);
+                    --text-description: "O lugar que as vezes eu pegava as raquetes e a bolinha para usar na mesa do ping-pong"
+                }
+            }
+
+            @keyframes fade {
+                0% {
+                    opacity: 0;
+                }
+                15%, 85% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        }
+    </style>
     <title>Document</title>
 </head>
-<body class="h-screen bg-[#0003]">
-    <div class="h-screen w-screen grid place-items-center">
-        <div class="w-[80%] h-[80%]">
-            <img src="./img/mesa-ping-pong.jpg" class="h-full w-full" alt="">
-            <div class="">
-                <span class="grid place-items-center">
-                    Mesa de ping-pong, que é o lugar que passo a maior parte dos intervalos
-                </span>
-            </div>
-        </div>
-        
-        <!-- <img src="./img/sala-mac.jpg" class="" alt="">
-        <img src="./img/aapm.jpg" class="z-3" alt=""> -->
+
+<body class="h-screen bg-[#0003] grid place-items-center">
+    <div class="absolute shadow-[0_0_16px_#000] w-[80%] h-[80%] overflow-hidden rounded-[12px] bg-center bg-cover 
+        animate-[fade_12s_infinite_0s] animate-fade 
+        after:absolute after:w-full after:bottom-[0] after:py-[16px] after:bg-[#0009] after:text-[#fff] after:text-center after:text-[1.5rem] after:font-[sans-serif] 
+        after:content-(--text-description)">
     </div>
 </body>
+
 </html>
